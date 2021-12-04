@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: nginx-sv
 spec:
+  type: LoadBalancer
   selector:
       app: nginx
   ports:
