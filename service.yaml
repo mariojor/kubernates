@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-sv
+spec:
+  selector:
+      app: nginx
+  ports:
+    - port: 80 #porta do service 
+      targetPort: 80 #porta do contatiner

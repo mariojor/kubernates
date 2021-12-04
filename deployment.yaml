@@ -1,7 +1,7 @@
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployment
 metadata:
-  name: nginx-rs
+  name: nginx-dp
 spec:
   replicas: 2
   selector:
@@ -13,7 +13,7 @@ spec:
         app: nginx
     spec:
      containers:
-      - name: caddy
-        image: caddy:latest
+      - name: nginx
+        image: nginx:latest
         ports:
         - containerPort: 80
