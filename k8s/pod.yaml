@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "hello-go"
+  labels:
+    app: "hello-go"
+spec:
+  containers:
+  - name: "hello-go"
+    image: marioalbuquerque/hello-go:latest
