@@ -5,10 +5,10 @@ metadata:
 spec:
   selector:
     app: hello-go
-  type: NodePort #NodePort, LoadBalancer, ClusterIP
+  type: LoadBalancer #NodePort, LoadBalancer, ClusterIP
   ports:
   - name: hello-go-service
     port: 80 # A porta que o serviço está escutando
     targetPort: 8000 # A porta que o container está escutando
     protocol: TCP
-    nodePort: 30001
+    
