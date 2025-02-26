@@ -7,4 +7,4 @@ metadata:
 spec:
   containers:
   - name: "hello-go"
-    image: marioalbuquerque/hello-go:latest
+    image: marioalbuquerque/hello-go:v3

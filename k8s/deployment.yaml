@@ -1,11 +1,11 @@
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployment
 metadata:
   name: hello-go
   labels:
     app: hello-go
 spec:
-  replicas: 2
+  replicas: 5
   selector:
     matchLabels:
       app: hello-go
