@@ -5,7 +5,7 @@ metadata:
   labels:
     app: hello-go
 spec:
-  replicas: 5
+  replicas: 1
   selector:
     matchLabels:
       app: hello-go
@@ -15,5 +15,29 @@ spec:
         app: "hello-go"
     spec:
       containers:
-      - name: "hello-go"
-        image: marioalbuquerque/hello-go:v3
+        - name: "hello-go"
+          image: marioalbuquerque/hello-go:v
+          env:
+            - name: "NAME"
+              value: "Mario"     
+            - name: "AGE"
+              value: "39"
+              envFrom:
+               - configMapRef:
+                  name: hello-go-config  # Passagem de parametros por configMap
+          #  env:
+          #   - name: "NAME"
+          #     value: "Mario"     Passagem de parametros por value
+          #   - name: "AGE"
+          #     value: "39"      
+          # env:
+          #   - name: "NAME"
+          #     valueFrom:
+          #       configMapKeyRef:
+          #         name: hello-go-config
+          #         key: NAME         Passagem de parametros por key
+          #   - name: "AGE"
+          #     valueFrom:
+          #       configMapKeyRef:
+          #         name: hello-go-config
+          #         key: AGE

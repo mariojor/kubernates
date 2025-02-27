@@ -3,14 +3,16 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"os"
 )
 
-func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "Hello, Docker Deployment!")
+func main() {
+	http.HandleFunc("/", Hello)
+	http.ListenAndServe(":8000", nil)
 }
 
-func main() {
-	http.HandleFunc("/", handler)
-	fmt.Println("Server running on port 8000")
-	http.ListenAndServe(":8000", nil) // <- Confirme que a porta é ":8000"
+func Hello(w http.ResponseWriter, r *http.Request) {
+	name := os.Getenv("NAME")
+	age := os.Getenv("AGE")
+	fmt.Fprintf(w, "Hello,I'm %s! You are %s years old.", name, age)
 }
