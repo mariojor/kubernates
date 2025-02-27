@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hello-go-config
+data:
+  NAME: Mario
+  AGE: "39"
